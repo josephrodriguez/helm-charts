@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  dotnet-service:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-09-23T19:10:21.584022558Z"
+    description: A Helm chart for Kubernetes
+    digest: e2fdc03c40f20568c4fdfd5be24cbb4b5468163b4c0c4bc114caf11431a46636
+    name: dotnet-service
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/dotnet-service-0.1.0/dotnet-service-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-09-23T19:10:21.584032025Z"
