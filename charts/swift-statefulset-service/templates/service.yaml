@@ -1,0 +1,17 @@
+{{- if .Values.service.create }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "swift-statefulset-service.fullname" . }}
+  namespace: {{ include "swift-statefulset-service.namespace" . }}  
+  labels:
+    {{- include "swift-statefulset-service.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  {{- with .Values.service.ports }}
+  ports:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  selector:
+    {{- include "swift-statefulset-service.selectorLabels" . | nindent 4 }}
+{{- end }}

@@ -1,0 +1,29 @@
+{{- if .Values.certificate.create }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "swift-deployment-webapi.fullname" . }}
+  namespace: {{ include "swift-deployment-webapi.namespace" . }}
+spec:
+  secretName: {{ .Values.certificate.secretName }}
+  {{- if .Values.certificate.commonName }}
+  commonName: {{ .Values.certificate.commonName }}
+  {{- end }}
+  {{- with .Values.certificate.dnsNames }}
+  dnsNames:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  isCA: {{ .Values.certificate.certificateAuthority }}
+  {{- with .Values.certificate.usages }}
+  usages:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.certificate.keystores }}
+  keystores:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.certificate.issuer }}
+  issuerRef:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}  
+{{- end }}
