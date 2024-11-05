@@ -1,5 +1,38 @@
 apiVersion: v1
 entries:
+  swift-deployment-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-11-05T21:32:38.421778186Z"
+    description: A Helm chart for Kubernetes
+    digest: 3eaaba2fd14a642ea75808d9d96f2940079bd7f446905ade3b0e56d6626ae40a
+    name: swift-deployment-service
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/swift-deployment-service-0.3.0/swift-deployment-service-0.3.0.tgz
+    version: 0.3.0
+  swift-deployment-webapi:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-11-05T21:32:38.552765331Z"
+    description: A Helm chart for Kubernetes
+    digest: c88684143219fa86bd9f988573c83924b3815f4b73e368282840a0e8c3c09d3c
+    name: swift-deployment-webapi
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/swift-deployment-webapi-0.5.1/swift-deployment-webapi-0.5.1.tgz
+    version: 0.5.1
+  swift-statefulset-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-11-05T21:32:38.659718638Z"
+    description: A Helm chart for Kubernetes
+    digest: 5195ac2867f6199607427bd48f50be3508439e48f5205ea3155fd8e8863be3c4
+    name: swift-statefulset-service
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/swift-statefulset-service-0.2.0/swift-statefulset-service-0.2.0.tgz
+    version: 0.2.0
   weecuba-deployment-service:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -265,4 +298,4 @@ entries:
     urls:
     - https://github.com/weecuba/helm-charts/releases/download/weecuba-statefulset-service-0.1.0/weecuba-statefulset-service-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-20T10:38:56.541329799Z"
+generated: "2024-11-05T21:32:38.659776296Z"
