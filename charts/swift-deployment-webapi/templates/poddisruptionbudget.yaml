@@ -1,0 +1,22 @@
+{{- if .Values.podDisruptionBudget.create }}
+apiVersion: "policy/v1"
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "swift-deployment-webapi.fullname" . }}
+  namespace: {{ include "swift-deployment-webapi.namespace" . }}
+  labels:
+    {{- include "swift-deployment-webapi.labels" . | nindent 4 }}
+    {{- with .Values.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  {{- if .Values.podDisruptionBudget.minAvailable }}
+  minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+  {{- end }}
+  {{- if .Values.podDisruptionBudget.maxUnavailable }}
+  maxUnavailable: {{ .Values.podDisruptionBudget.maxUnavailable }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "swift-deployment-webapi.selectorLabels" . | nindent 6 }}
+{{- end }}

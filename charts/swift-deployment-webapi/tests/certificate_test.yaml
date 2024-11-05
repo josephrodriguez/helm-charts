@@ -1,0 +1,102 @@
+suite: "Certificate Resource Tests"
+
+templates:
+  - certificate.yaml
+
+tests:
+  - it: "should create a Certificate when certificate.create is true"
+    set:
+      nameOverride: test-release
+      certificate.create: true
+      certificate.secretName: "my-cert-secret"
+      certificate.certificateAuthority: true
+      certificate.usages: ["digital signature", "key encipherment"]
+      certificate.dns: ["example.com", "www.example.com"]
+      certificate.issuer:
+        name: "letsencrypt-prod"
+        kind: "ClusterIssuer"
+    asserts:
+      - isKind:
+          of: Certificate
+      - equal:
+          path: spec.secretName
+          value: "my-cert-secret"
+      - equal:
+          path: spec.isCA
+          value: true
+      - equal:
+          path: spec.issuerRef.name
+          value: "letsencrypt-prod"
+      - equal:
+          path: spec.issuerRef.kind
+          value: "ClusterIssuer"
+
+  - it: "should set commonName if specified"
+    set:
+      certificate:
+        create: true
+        commonName: "example.com"
+    asserts:
+      - equal:
+          path: "spec.commonName"
+          value: "example.com"
+
+  - it: "should set isCA to true when specified"
+    set:
+      certificate:
+        create: true
+        certificateAuthority: true
+    asserts:
+      - equal:
+          path: "spec.isCA"
+          value: true
+
+  - it: "should set usages if provided"
+    set:
+      certificate:
+        create: true
+        usages:
+          - "digital signature"
+          - "key encipherment"
+    asserts:
+      - equal:
+          path: "spec.usages"
+          value:
+            - "digital signature"
+            - "key encipherment"
+
+  - it: "should configure keystores if provided"
+    set:
+      certificate:
+        create: true
+        keystores:
+          pkcs12:
+            create: true
+            passwordSecretRef:
+              name: "keystore-password"
+              key: "password"
+    asserts:
+      - equal:
+          path: "spec.keystores.pkcs12.create"
+          value: true
+      - equal:
+          path: "spec.keystores.pkcs12.passwordSecretRef.name"
+          value: "keystore-password"
+      - equal:
+          path: "spec.keystores.pkcs12.passwordSecretRef.key"
+          value: "password"
+
+  - it: "should set issuerRef with name and kind"
+    set:
+      certificate:
+        create: true
+        issuer:
+          name: "my-issuer"
+          kind: "ClusterIssuer"
+    asserts:
+      - equal:
+          path: "spec.issuerRef.name"
+          value: "my-issuer"
+      - equal:
+          path: "spec.issuerRef.kind"
+          value: "ClusterIssuer"                   
