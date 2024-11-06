@@ -14,6 +14,16 @@ entries:
   swift-deployment-webapi:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-11-06T21:33:28.121264943Z"
+    description: A Helm chart for Kubernetes
+    digest: 482f5830a7363f16442532047ae1f2357f6ae752fc9c7ba810447f120f350fa5
+    name: swift-deployment-webapi
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/swift-deployment-webapi-0.7.2/swift-deployment-webapi-0.7.2.tgz
+    version: 0.7.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-11-06T20:47:54.816295076Z"
     description: A Helm chart for Kubernetes
     digest: 1b2ec2e968381137476f8cf57a243a68c6a4ab080ce314528ce60f8a110cbd16
@@ -63,4 +73,4 @@ entries:
     urls:
     - https://github.com/josephrodriguez/helm-charts/releases/download/swift-statefulset-service-0.2.0/swift-statefulset-service-0.2.0.tgz
     version: 0.2.0
-generated: "2024-11-06T20:47:54.816315805Z"
+generated: "2024-11-06T21:33:28.121285271Z"
