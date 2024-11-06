@@ -143,10 +143,15 @@ certificate:
     - server auth  
   keystores:
     pkcs12:
-      create: true
+      create: false
       passwordSecretRef:
-        name: example-com-tls-keystore
-        key: password    
+        name: example-com-pkcs12-secret
+        key: pkcs12Password
+    jks:
+      create: false
+      passwordSecretRef:
+        name: example-com-jks-secret
+        key: jksPassword           
   issuer:
     name: ca-issuer
     kind: ClusterIssuer
