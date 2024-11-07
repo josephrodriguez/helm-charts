@@ -96,6 +96,10 @@ deployment:
     #   mountPath: "/etc/foo"
     #   readOnly: true      
 
+configmap:
+  create: false
+  data: {}
+
 service:
   type: ClusterIP
   ports:

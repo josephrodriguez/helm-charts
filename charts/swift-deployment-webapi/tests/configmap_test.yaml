@@ -1,0 +1,38 @@
+suite: "ConfigMap Tests"
+
+templates:
+  - configmap.yaml
+
+tests:
+  - it: "should create a ConfigMap when configmap.create is true and data is provided"
+    set:
+      configmap:
+        create: true
+        data:
+          key1: "value1"
+          key2: "value2"
+    asserts:
+      - isKind:
+          of: ConfigMap
+      - equal:
+          path: data.key1
+          value: "value1"
+      - equal:
+          path: data.key2
+          value: "value2"
+
+  - it: "should handle complex data structures in ConfigMap data"
+    set:
+      configmap:
+        create: true
+        data:
+          nested:
+            innerKey1: "innerValue1"
+            innerKey2: "innerValue2"
+    asserts:
+      - equal:
+          path: data.nested.innerKey1
+          value: "innerValue1"
+      - equal:
+          path: data.nested.innerKey2
+          value: "innerValue2"

@@ -1,0 +1,13 @@
+{{- if and .Values.configmap.create .Values.configmap.data }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "swift-deployment-webapi.fullname" . }}
+  namespace: {{ include "swift-deployment-webapi.namespace" . }}
+  labels:
+    {{- include "swift-deployment-webapi.labels" . | nindent 4 }}
+data:
+    {{- with .Values.configmap.data }}
+        {{- toYaml . | nindent 4 }}
+    {{- end }}
+{{- end }}
