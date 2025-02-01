@@ -3,6 +3,16 @@ entries:
   swift-deployment-service:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-02-01T18:21:16.576311947Z"
+    description: A Helm chart for Kubernetes
+    digest: 0ad78f2ca18d13fbd7b57b02ddd03591cc14bd514d8ed1d9e8d2212ea00b1715
+    name: swift-deployment-service
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/swift-deployment-service-0.3.1/swift-deployment-service-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-11-05T21:32:38.421778186Z"
     description: A Helm chart for Kubernetes
     digest: 3eaaba2fd14a642ea75808d9d96f2940079bd7f446905ade3b0e56d6626ae40a
@@ -95,6 +105,16 @@ entries:
   swift-statefulset-service:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-02-01T18:21:16.705059393Z"
+    description: A Helm chart for Kubernetes
+    digest: 40abd3d2e060ba2581bf123fa2ba0e91237d8d0c4280afd38cb824e2f3bb64f9
+    name: swift-statefulset-service
+    type: application
+    urls:
+    - https://github.com/josephrodriguez/helm-charts/releases/download/swift-statefulset-service-0.2.1/swift-statefulset-service-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-11-05T21:32:38.659718638Z"
     description: A Helm chart for Kubernetes
     digest: 5195ac2867f6199607427bd48f50be3508439e48f5205ea3155fd8e8863be3c4
@@ -103,4 +123,4 @@ entries:
     urls:
     - https://github.com/josephrodriguez/helm-charts/releases/download/swift-statefulset-service-0.2.0/swift-statefulset-service-0.2.0.tgz
     version: 0.2.0
-generated: "2024-11-07T18:57:59.068906653Z"
+generated: "2025-02-01T18:21:16.705086674Z"
