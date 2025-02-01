@@ -22,3 +22,4 @@ To install the <chart-name> chart:
 To uninstall the chart:
 
     helm delete <chart-name>
+
