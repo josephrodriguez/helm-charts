@@ -30,8 +30,12 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "swift-deployment-webapi.serviceAccountName" . }}
+      
+      {{- if .Values.deployment.securityContext }}
       securityContext:
         {{- toYaml .Values.deployment.securityContext | nindent 8 }}
+      {{- end }}
+
       containers:
         - name: {{ include "swift-deployment-webapi.fullname" . }}
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}"
@@ -44,12 +48,22 @@ spec:
           ports:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+
+          {{- if .Values.deployment.livenessProbe }}
           livenessProbe:
             {{- toYaml .Values.deployment.livenessProbe | nindent 12 }}
+          {{- end }}
+
+          {{- if .Values.deployment.readinessProbe }}
           readinessProbe:
             {{- toYaml .Values.deployment.readinessProbe | nindent 12 }}
+          {{- end }}
+
+          {{- if .Values.deployment.resources }}
           resources:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
+          {{- end }}
+
           {{- with .Values.deployment.volumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}

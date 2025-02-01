@@ -73,16 +73,6 @@ deployment:
       containerPort: 8080
       protocol: TCP
 
-  livenessProbe:
-    httpGet:
-      path: /
-      port: http
-          
-  readinessProbe:
-    httpGet:
-      path: /
-      port: http
-
   # Additional volumes on the output Deployment definition.
   volumes: []
     # - name: foo

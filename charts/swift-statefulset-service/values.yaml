@@ -10,7 +10,7 @@ fullnameOverride: ""
 statefulset:
   replicaCount: 1
 
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 1
 
   image:
     repository: alpine
